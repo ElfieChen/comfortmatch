@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComfortMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="logo">Comfort<em>Match</em></div>
+    <div class="header-label" id="header-label"></div>
+  </header>
+
+  <!-- ── Screen: Quiz ── -->
+  <div id="screen-quiz" class="screen">
+    <div class="quiz-wrap">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <div class="question-card" id="question-card"></div>
+    </div>
+  </div>
+
+  <!-- ── Screen: Results ── -->
+  <div id="screen-results" class="screen">
+    <div class="results-layout">
+
+      <aside class="profile-col">
+        <p class="eyebrow">Your profile</p>
+        <div id="profile-card"></div>
+        <button class="btn-edit" onclick="editAnswers()">Edit answers</button>
+      </aside>
+
+      <main class="recs-col">
+        <div class="recs-header">
+          <h1 class="recs-title">Recommendations</h1>
+          <span class="recs-count" id="recs-count"></span>
+        </div>
+        <div id="recs-feed"></div>
+      </main>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
