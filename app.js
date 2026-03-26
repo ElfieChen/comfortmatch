@@ -803,33 +803,33 @@ function buildWhy(result, profile) {
   // Commute reasons
   var commuteReasons = {
     WalkingCycling: function() {
-      if (tags.includes("moisture-wicking") && tags.includes("breathable")) return "Handles sweat and airflow well — ideal for walking or cycling to your destination.";
-      if (tags.includes("weather-resistant")) return "Stands up to the elements on an outdoor commute.";
-      if (tags.includes("stretch")) return "Moves freely with you on an active commute.";
-      if (tags.includes("breathable")) return "Keeps you comfortable during an active journey on foot or bike.";
+      if (tags.includes("moisture-wicking") && tags.includes("breathable")) return "Wicks sweat and breathes well — built for an active commute.";
+      if (tags.includes("weather-resistant")) return "Handles the elements on an outdoor commute.";
+      if (tags.includes("stretch")) return "Stretches with you on foot or bike.";
+      if (tags.includes("breathable")) return "Stays breathable on an active journey.";
       return null;
     },
     Bus: function() {
-      if (tags.includes("layering-friendly") && tags.includes("easy-remove")) return "Easy to layer and peel off as temperatures shift from outdoors to a packed bus.";
-      if (tags.includes("layering-friendly")) return "Layers well for the changing conditions of a bus commute.";
-      if (tags.includes("wrinkle-resistant")) return "Arrives looking fresh even after a long sit on the bus.";
+      if (tags.includes("layering-friendly") && tags.includes("easy-remove")) return "Easy to layer up or strip off between stops.";
+      if (tags.includes("layering-friendly")) return "Layers well for a bus commute's shifting temps.";
+      if (tags.includes("wrinkle-resistant")) return "Arrives looking fresh after a long sit.";
       return null;
     },
     Subway: function() {
-      if (tags.includes("layering-friendly") && tags.includes("easy-remove")) return "Easy to add or shed layers as the subway goes from freezing platforms to stuffy carriages.";
-      if (tags.includes("breathable")) return "Helps you stay comfortable in a warm, crowded subway car.";
-      if (tags.includes("wrinkle-resistant")) return "Stays presentable through a cramped underground commute.";
+      if (tags.includes("layering-friendly") && tags.includes("easy-remove")) return "Adapts fast between freezing platforms and stuffy carriages.";
+      if (tags.includes("breathable")) return "Stays cool in a packed subway car.";
+      if (tags.includes("wrinkle-resistant")) return "Stays sharp through a cramped commute.";
       return null;
     },
     Car: function() {
-      if (tags.includes("low-friction") || tags.includes("comfortable")) return "Comfortable for sitting in a car — no stiff seams or restrictive cuts.";
-      if (tags.includes("wrinkle-resistant")) return "Keeps its shape through a long drive, so you step out looking sharp.";
+      if (tags.includes("low-friction") || tags.includes("comfortable")) return "Comfortable in the seat — no stiff seams or bulk.";
+      if (tags.includes("wrinkle-resistant")) return "Holds its shape through a long drive.";
       return null;
     },
     WorkFromHome: function() {
-      if (tags.includes("soft") && tags.includes("comfortable")) return "Soft and relaxed enough to wear at home all day without feeling sloppy.";
-      if (tags.includes("relaxed-fit")) return "A relaxed fit that keeps you comfortable through long hours at your desk.";
-      if (tags.includes("polished")) return "Polished enough for video calls while staying comfortable at home.";
+      if (tags.includes("soft") && tags.includes("comfortable")) return "Relaxed enough for all-day wear at home.";
+      if (tags.includes("relaxed-fit")) return "Easy fit for long hours at your desk.";
+      if (tags.includes("polished")) return "Camera-ready without sacrificing comfort.";
       return null;
     }
   };
@@ -840,21 +840,21 @@ function buildWhy(result, profile) {
   // Thermal reasons
   var thermalReasons = {
     EasilyWarm: function() {
-      if (tags.includes("moisture-wicking") && tags.includes("breathable")) return "The breathable, moisture-wicking fabric keeps you cool even when you tend to overheat.";
-      if (tags.includes("lightweight") && tags.includes("breathable")) return "Lightweight and airy — a good pick for someone who runs warm.";
-      if (tags.includes("breathable")) return "Breathable construction helps prevent overheating.";
+      if (tags.includes("moisture-wicking") && tags.includes("breathable")) return "Breathable and moisture-wicking — keeps you cool when you run warm.";
+      if (tags.includes("lightweight") && tags.includes("breathable")) return "Lightweight and airy — ideal for someone who overheats.";
+      if (tags.includes("breathable")) return "Breathable fabric to prevent overheating.";
       return null;
     },
     EasilyCold: function() {
-      if (tags.includes("insulated") && tags.includes("warm")) return "Well-insulated to keep you properly warm throughout the day.";
-      if (tags.includes("layering-friendly") && tags.includes("warm")) return "Works as a warm base or mid-layer for someone who feels the cold easily.";
-      if (tags.includes("warm")) return "Offers genuine warmth for someone who tends to run cold.";
+      if (tags.includes("insulated") && tags.includes("warm")) return "Well-insulated for someone who feels the cold.";
+      if (tags.includes("layering-friendly") && tags.includes("warm")) return "Warm base or mid-layer for cold-sensitive wear.";
+      if (tags.includes("warm")) return "Genuine warmth for someone who runs cold.";
       return null;
     },
     InBetween: function() {
-      if (tags.includes("layering-friendly") && tags.includes("balanced")) return "Versatile layering piece — easy to adjust as the temperature shifts throughout the day.";
-      if (tags.includes("balanced")) return "Well-balanced for someone whose temperature comfort sits in the middle.";
-      if (tags.includes("layering-friendly")) return "Layers easily so you can adapt as conditions change.";
+      if (tags.includes("layering-friendly") && tags.includes("balanced")) return "Easy to layer up or down as temps shift.";
+      if (tags.includes("balanced")) return "Balanced for in-between temperature comfort.";
+      if (tags.includes("layering-friendly")) return "Layers easily to adapt through the day.";
       return null;
     }
   };
@@ -864,37 +864,36 @@ function buildWhy(result, profile) {
 
   // Maintenance reasons
   if (profile.maintenancePref === "LowMaintenance") {
-    if (tags.includes("machine-wash") && tags.includes("wrinkle-resistant")) sentences.push("Machine washable and wrinkle-resistant — zero fuss after a long day.");
-    else if (tags.includes("machine-wash") && tags.includes("easy-care")) sentences.push("Fully machine washable and easy to care for — no special treatment needed.");
-    else if (tags.includes("machine-wash")) sentences.push("Machine washable, which suits your preference for low-effort clothing care.");
+    if (tags.includes("machine-wash") && tags.includes("wrinkle-resistant")) sentences.push("Machine wash, no ironing needed.");
+    else if (tags.includes("machine-wash")) sentences.push("Fully machine washable — no fuss.");
   } else if (profile.maintenancePref === "RegularCareOK") {
-    if (tags.includes("delicate-care") || tags.includes("dry-clean-only")) sentences.push("Requires a bit of extra care, but the quality and feel make it worthwhile.");
+    if (tags.includes("delicate-care") || tags.includes("dry-clean-only")) sentences.push("Needs a little extra care — worth it for the quality.");
   }
 
   // Purpose reasons
   var purposeReasons = {
     Work: function() {
-      if (tags.includes("structured") && tags.includes("polished")) return "Structured and polished — exactly what you need for a professional setting.";
-      if (tags.includes("wrinkle-resistant") && tags.includes("polished")) return "Stays sharp and presentable through a full day at the office.";
-      if (tags.includes("polished")) return "Has the polished look expected in a professional environment.";
+      if (tags.includes("structured") && tags.includes("polished")) return "Structured and polished for a professional setting.";
+      if (tags.includes("wrinkle-resistant") && tags.includes("polished")) return "Stays sharp through a full day at the office.";
+      if (tags.includes("polished")) return "Polished look for a work environment.";
       return null;
     },
     SchoolStudy: function() {
-      if (tags.includes("comfortable") && tags.includes("long-wear")) return "Comfortable enough to sit in for long lectures or study sessions without fidgeting.";
-      if (tags.includes("easy-care") && tags.includes("comfortable")) return "Practical and comfortable — suited to busy days on campus.";
-      if (tags.includes("comfortable")) return "Comfortable for long hours of studying or attending class.";
+      if (tags.includes("comfortable") && tags.includes("long-wear")) return "Comfortable through long lectures or study sessions.";
+      if (tags.includes("easy-care") && tags.includes("comfortable")) return "Practical and comfortable for busy campus days.";
+      if (tags.includes("comfortable")) return "Comfortable for long stretches of sitting.";
       return null;
     },
     LeisureSocial: function() {
-      if (tags.includes("soft") && tags.includes("flexible")) return "Soft and flexible — moves with you whether you're out with friends or just relaxing.";
-      if (tags.includes("versatile") && tags.includes("comfortable")) return "Casual enough for leisure, and versatile enough to wear almost anywhere.";
-      if (tags.includes("breathable") && tags.includes("comfortable")) return "Light and breathable for leisure outings and social occasions.";
+      if (tags.includes("soft") && tags.includes("flexible")) return "Soft and flexible for social wear or relaxing.";
+      if (tags.includes("versatile") && tags.includes("comfortable")) return "Casual and versatile — goes almost anywhere.";
+      if (tags.includes("breathable") && tags.includes("comfortable")) return "Light and breathable for outings and social occasions.";
       return null;
     },
     MixedUse: function() {
-      if (tags.includes("versatile") && tags.includes("polished")) return "Versatile enough to take you from a work setting to a casual outing without changing.";
-      if (tags.includes("versatile")) return "A versatile pick that adapts across different settings in your day.";
-      if (tags.includes("balanced")) return "Well-balanced for a lifestyle that mixes different contexts throughout the week.";
+      if (tags.includes("versatile") && tags.includes("polished")) return "Takes you from work to casual without changing.";
+      if (tags.includes("versatile")) return "Adapts across different settings in your day.";
+      if (tags.includes("balanced")) return "Balanced for a mixed-use lifestyle.";
       return null;
     }
   };
@@ -909,11 +908,11 @@ function buildWhy(result, profile) {
       var ex = SENSITIVITY_EXCLUSIONS[s];
       return ex && (ex.tags.some(function(t) { return tags.includes(t); }));
     });
-    if (safe) sentences.push("Contains no materials that conflict with your sensitivities.");
+    if (safe) sentences.push("No materials that conflict with your sensitivities.");
   }
 
   // Fallback
-  if (!sentences.length) sentences.push("A well-rounded match for your overall lifestyle and preferences.");
+  if (!sentences.length) sentences.push("A solid all-round match for your profile.");
 
   return sentences.join(" ");
 }
